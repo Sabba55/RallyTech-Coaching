@@ -1,0 +1,47 @@
+[
+  {
+    "id": "online",
+    "nombre": "Rallytech Online",
+    "subtitulo": "Análisis y coaching remoto",
+    "imagen": "/images/programa-online.png",
+    "caracteristicas": [
+      "Análisis de onboard",
+      "Análisis de telemetría",
+      "Técnica de conducción",
+      "Notas y comunicación",
+      "Identificación de pérdidas de tiempo",
+      "Plan de trabajo personalizado",
+      "Videollamadas de seguimiento"
+    ]
+  },
+  {
+    "id": "training",
+    "nombre": "Rallytech Training",
+    "subtitulo": "Entrenamiento presencial",
+    "imagen": "/images/programa-training.png",
+    "caracteristicas": [
+      "Cursos de 1, 2 o 3 días",
+      "Técnica de conducción",
+      "Frenada y transferencias",
+      "Trazadas y control del auto",
+      "Notas y lectura del camino",
+      "Análisis de onboard y telemetría",
+      "Debrief y plan de mejora"
+    ]
+  },
+  {
+    "id": "performance",
+    "nombre": "Rallytech Performance",
+    "subtitulo": "Desarrollo integral del piloto",
+    "imagen": "/images/programa-performance.png",
+    "caracteristicas": [
+      "Seguimiento durante la temporada",
+      "Análisis previo y post carrera",
+      "Telemetría y video análisis",
+      "Trabajo con piloto y copiloto",
+      "Estrategia y preparación",
+      "Objetivos y plan de evolución",
+      "Acompañamiento en competencias"
+    ]
+  }
+]

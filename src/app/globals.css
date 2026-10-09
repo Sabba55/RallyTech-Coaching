@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@theme {
+  --color-negro: #050505;
+  --color-gris-900: #111111;
+  --color-gris-700: #2a2a2a;
+  --color-gris-400: #9a9a9a;
+  --color-gris-100: #e6e6e6;
+  --color-verde: #39ff14;
+}
+
+body {
+  background: var(--color-negro);
+  color: var(--color-gris-100);
+}
+
+html {
+  scroll-behavior: smooth;
+}

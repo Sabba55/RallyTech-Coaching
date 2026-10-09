@@ -1,0 +1,13 @@
+{
+  "estadisticas": [
+    { "valor": "15+", "etiqueta": "Años en rally" },
+    { "valor": "3+", "etiqueta": "Años como coach" },
+    { "valor": "20+", "etiqueta": "Pilotos entrenados" }
+  ],
+  "hitos": [
+    { "titulo": "Maestro del Rally", "detalle": "Máster de la Tracción Simple, 2021 / 2022" },
+    { "titulo": "Renault Sport", "detalle": "Piloto oficial" },
+    { "titulo": "Peugeot Sport", "detalle": "Piloto de pruebas y desarrollo" },
+    { "titulo": "Toyota", "detalle": "Instructor en clínicas de conducción" }
+  ]
+}
