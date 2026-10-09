@@ -3,7 +3,7 @@
     "id": "online",
     "nombre": "Rallytech Online",
     "subtitulo": "Análisis y coaching remoto",
-    "imagen": "/images/programa-online.png",
+    "imagen": "/images/servicios/programa-online.png",
     "caracteristicas": [
       "Análisis de onboard",
       "Análisis de telemetría",
@@ -18,7 +18,7 @@
     "id": "training",
     "nombre": "Rallytech Training",
     "subtitulo": "Entrenamiento presencial",
-    "imagen": "/images/programa-training.png",
+    "imagen": "/images/servicios/programa-training.png",
     "caracteristicas": [
       "Cursos de 1, 2 o 3 días",
       "Técnica de conducción",

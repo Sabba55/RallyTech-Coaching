@@ -8,7 +8,7 @@ const enlaces = [
   { href: "#servicios", texto: "Servicios" },
   { href: "#metodos", texto: "Métodos" },
   { href: "#quien-soy", texto: "¿Quién soy?" },
-  { href: "#contacto", texto: "Contacto" },
+  { href: "#contacto", texto: "Contacto", destacado: true },
 ];
 
 export default function Header() {
@@ -29,9 +29,17 @@ export default function Header() {
             />
         </a>
 
-        <nav className="hidden gap-8 text-sm uppercase tracking-wide md:flex">
+        <nav className="hidden items-center gap-8 text-sm uppercase tracking-wide md:flex">
           {enlaces.map((e) => (
-            <a key={e.href} href={e.href} className="transition hover:text-verde">
+            <a
+              key={e.href}
+              href={e.href}
+              className={
+                e.destacado
+                  ? "rounded-[10px] bg-verde px-5 py-2 font-bold text-negro border border-white border-2 transition duration-200 hover: hover:shadow-[0_0_18px_rgba(57,255,20,0.6)] hover:brightness-110"
+                  : "transition hover:text-verde"
+              }
+            >
               {e.texto}
             </a>
           ))}

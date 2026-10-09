@@ -4,7 +4,7 @@ import "./globals.css";
 
 const exo = Exo_2({
   subsets: ["latin"],
-  weight: ["400", "500", "700", "800"],
+  weight: ["300", "400", "500", "700", "800"],
   style: ["normal", "italic"],
   display: "swap",
 });

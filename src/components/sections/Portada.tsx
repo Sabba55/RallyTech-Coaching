@@ -14,12 +14,11 @@ export default function Portada() {
       <div className="absolute inset-0 bg-gradient-to-r from-negro via-negro/70 to-transparent" />
 
       <div className="relative mx-auto w-full max-w-6xl px-5 pt-16">
-        <h1 className="text-5xl font-extrabold italic leading-tight md:text-7xl">
-          Encontrá <br />
-          <span className="text-verde">el tiempo.</span>
-          <br />
-          Desarrollá <br />
-          al piloto.
+        <h1 className="text-5xl uppercase leading-[0.95] md:text-6xl lg:text-7xl">
+          <span className="block font-extrabold">Encontrá</span>
+          <span className="block font-extrabold text-verde">el tiempo.</span>
+          <span className="block font-normal">Desarrollá</span>
+          <span className="block font-normal">al piloto.</span>
         </h1>
 
         <p className="mt-6 text-sm uppercase tracking-widest text-gris-400">
@@ -29,7 +28,7 @@ export default function Portada() {
         <div className="mt-8 flex flex-wrap gap-4">
           <a
             href="#contacto"
-            className="bg-verde px-6 py-3 text-sm font-bold uppercase text-negro transition hover:brightness-110"
+            className="bg-verde px-6 py-3 text-sm font-bold uppercase text-negro transition hover:brightness-110 hover: hover:shadow-[0_0_18px_rgba(57,255,20,0.6)] hover:brightness-110"
           >
             Quiero mejorar →
           </a>
