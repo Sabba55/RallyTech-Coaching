@@ -11,11 +11,11 @@ const exo = Exo_2({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://rallytech.example.com"), // cambiar por el dominio real
-  title: "Rallytech Coaching | by Samir Assaf",
+  title: "RallyTech Coaching | by Samir Assaf",
   description:
     "Coaching, análisis de telemetría y entrenamiento de rally. Encontrá el tiempo, desarrollá al piloto.",
   openGraph: {
-    title: "Rallytech Coaching | by Samir Assaf",
+    title: "RallyTech Coaching | by Samir Assaf",
     description:
       "Coaching, análisis de telemetría y entrenamiento de rally.",
     images: ["/images/og.jpg"],
