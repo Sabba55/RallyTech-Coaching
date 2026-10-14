@@ -1,5 +1,25 @@
 import Image from "next/image";
 
+const redes = [
+  {
+    nombre: "Instagram",
+    href: "https://www.instagram.com/rallytech_coaching/", 
+    icono: (
+      <>
+        <rect x="4" y="4" width="16" height="16" rx="4" />
+        <circle cx="12" cy="12" r="3" />
+        <path d="M16.5 7.5v.01" />
+      </>
+    ),
+  },
+];
+
+// Guarda el año en caché para que Next lo trate como un valor estable
+async function Anio() {
+  "use cache";
+  return <>{new Date().getFullYear()}</>;
+}
+
 export default function Footer() {
   return (
     <footer className="border-t border-gris-700 py-8">
@@ -14,12 +34,33 @@ export default function Footer() {
             className="h-10 w-auto md:h-12"
           />
         </a>
-        <p>© {new Date().getFullYear()} Rallytech Coaching. Todos los derechos reservados.</p>
+        <p>© <Anio /> Rallytech Coaching. Todos los derechos reservados.</p>
         
         {/* Los links a redes se completan cuando el cliente los envíe */}
-        <div className="flex gap-4">
-          <a href="#" className="hover:text-verde">Instagram</a>
-          <a href="#" className="hover:text-verde">TikTok</a>
+        <div className="flex items-center gap-4">
+          {redes.map((r) => (
+            <a
+              key={r.nombre}
+              href={r.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={r.nombre}
+              className="text-gris-400 transition duration-200 hover:text-verde"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                className="h-6 w-6"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden
+              >
+                {r.icono}
+              </svg>
+            </a>
+          ))}
         </div>
       </div>
     </footer>

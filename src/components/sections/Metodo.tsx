@@ -87,7 +87,7 @@ export default function Metodo() {
           </div>
         </div>
 
-        <ol className="mt-14 grid gap-12 sm:grid-cols-2 lg:grid-cols-5 lg:gap-8">
+        <ol className="mt-8 grid gap-12 sm:grid-cols-2 lg:grid-cols-5 lg:gap-8">
           {pasos.map((p, i) => (
             // Contenedor padre del método: 2 divs apilados
             <li key={p.numero} className="relative flex flex-col gap-4">

@@ -5,6 +5,8 @@ import Footer from "@/components/common/Footer";
 import Portada from "@/components/sections/Portada";
 import Programas from "@/components/sections/Programas";
 import Metodo from "@/components/sections/Metodo";
+import SobreMi from "@/components/sections/SobreMi";
+import Contacto from "@/components/sections/Contacto";
 
 export default function Home() {
   return (
@@ -15,6 +17,8 @@ export default function Home() {
         <Portada />
         <Programas />
         <Metodo />
+        <SobreMi />
+        <Contacto />
       </main>
 
       <Footer />
