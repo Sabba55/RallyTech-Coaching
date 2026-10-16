@@ -17,7 +17,7 @@ export default function Portada() {
         <h1 className="text-5xl uppercase leading-[0.95] md:text-6xl lg:text-7xl">
           <span className="block font-extrabold">Más Técnica</span>
           <span className="block font-extrabold text-verde">Más Control.</span>
-          <span className="block font-normal">Más Velocidad</span>
+          <span className="block font-normal">Más Rápido</span>
           <span className="block font-normal"> </span>
         </h1>
 

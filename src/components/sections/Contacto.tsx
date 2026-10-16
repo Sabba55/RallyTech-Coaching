@@ -7,8 +7,8 @@ import type { RespuestaContacto } from "@/types/contacto";
 import { PAISES, EXPERIENCIAS } from "@/data/opciones-contacto";
 
 const campo =
-  "w-full rounded-[10px] border border-gris-700 bg-gris-900 px-4 py-3 text-sm font-medium not-italic text-gris-100 placeholder:text-gris-400 outline-none transition focus:border-verde";
-const etiqueta = "mb-2 block text-xs uppercase tracking-widest text-gris-400";
+  "w-full rounded-[10px] border border-gris-400 bg-gris-900 px-4 py-3 text-sm font-medium not-italic text-gris-100 placeholder:text-gris-400 outline-none transition focus:border-verde";
+const etiqueta = "mb-2 block text-xs uppercase tracking-widest text-gris-100";
 
 export default function Contacto() {
   const [estado, accion, enviando] = useActionState<RespuestaContacto | null, FormData>(
@@ -27,7 +27,7 @@ export default function Contacto() {
   }
 
   return (
-    <section id="contacto" className="scroll-mt-20 border-t border-gris-700 py-20">
+    <section id="contacto" className="scroll-mt-20 border-t border-gris-700 bg-gris-900 py-10">
       <div className="mx-auto grid max-w-6xl gap-12 px-5 md:grid-cols-2 md:gap-16">
         {/* Columna izquierda: mensaje */}
         <div className="flex flex-col justify-center">
@@ -216,11 +216,13 @@ export default function Contacto() {
               disabled={enviando}
               aria-label="Reiniciar formulario"
               title="Reiniciar formulario"
-              className="inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded-[10px] border-2 border-gris-400 text-gris-400 transition duration-200 enabled:hover:border-verde enabled:hover:text-verde disabled:cursor-not-allowed disabled:opacity-70"
+              className="inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded-[10px] border-2 border-gris-400 text-gris-400 transition duration-200 enabled:hover:bg-gris-400 enabled:hover:text-negro enabled:active:bg-gris-400 enabled:active:text-negro disabled:cursor-not-allowed disabled:opacity-70"
             >
               <svg
                 viewBox="0 0 24 24"
-                className="h-5 w-5"
+                className={`h-5 w-5 ${
+                  claveForm > 0 ? "animate-[girar_0.5s_ease-in-out] motion-reduce:animate-none" : ""
+                }`}
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"

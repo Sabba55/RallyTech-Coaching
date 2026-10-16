@@ -23,6 +23,13 @@ html {
   color-scheme: dark;
 }
 
+/* Animacion de girar */
+@keyframes girar {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
 @supports (appearance: base-select) {
   .select-rally,
   .select-rally::picker(select) {
