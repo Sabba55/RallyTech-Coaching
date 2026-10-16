@@ -37,10 +37,17 @@ export async function enviarContacto(
   };
 
   // Validación en el servidor (no depender solo del navegador)
-  if (!valores.nombre || !valores.email || !valores.programa) {
+  if (
+    !valores.nombre ||
+    !valores.email ||
+    !valores.pais ||
+    !valores.experiencia ||
+    !valores.programa
+  ) {
     return {
       ok: false,
-      error: "Completá nombre, correo electrónico y el programa de interés.",
+      error:
+        "Completá nombre, correo electrónico, país, experiencia y el programa de interés.",
       valores,
     };
   }
@@ -51,11 +58,11 @@ export async function enviarContacto(
     return { ok: false, error: "Elegí una opción en \"Interesado en\".", valores };
   }
 
-  if (valores.pais && !PAISES.includes(valores.pais)) {
-  return { ok: false, error: "Elegí un país de la lista.", valores };
+  if (!PAISES.includes(valores.pais)) {
+    return { ok: false, error: "Elegí un país de la lista.", valores };
   }
 
-  if (valores.experiencia && !(valores.experiencia in EXPERIENCIA_LABEL)) {
+  if (!(valores.experiencia in EXPERIENCIA_LABEL)) {
     return { ok: false, error: "Elegí una opción de experiencia válida.", valores };
   }
 
@@ -78,8 +85,8 @@ export async function enviarContacto(
       text: [
         `Nombre: ${valores.nombre}`,
         `Correo: ${valores.email}`,
-        `País: ${valores.pais || "(sin indicar)"}`,
-        `Experiencia: ${EXPERIENCIA_LABEL[valores.experiencia] ?? "(sin indicar)"}`,
+        `País: ${valores.pais}`,
+        `Experiencia: ${EXPERIENCIA_LABEL[valores.experiencia]}`,
         `Interesado en: ${OPCIONES[valores.programa]}`,
         "",
         "¿Qué quiere mejorar?",

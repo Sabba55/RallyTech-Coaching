@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useState } from "react";
 import programas from "@/data/programas.json";
 import { enviarContacto } from "@/actions/enviar-contacto";
 import type { RespuestaContacto } from "@/types/contacto";
@@ -15,6 +15,16 @@ export default function Contacto() {
     enviarContacto,
     null
   );
+
+  // Reiniciar: remonta el formulario y oculta el mensaje y los valores del último envío
+  const [claveForm, setClaveForm] = useState(0);
+  const [estadoOculto, setEstadoOculto] = useState<RespuestaContacto | null>(null);
+  const estadoVisible = estado === estadoOculto ? null : estado;
+
+  function reiniciar() {
+    setEstadoOculto(estado);
+    setClaveForm((k) => k + 1);
+  }
 
   return (
     <section id="contacto" className="scroll-mt-20 border-t border-gris-700 py-20">
@@ -32,8 +42,8 @@ export default function Contacto() {
         </div>
 
         {/* Columna derecha: formulario */}
-        <form action={accion} className="space-y-5">
-          {estado?.ok && (
+        <form key={claveForm} action={accion} className="space-y-5">
+          {estadoVisible?.ok && (
             <p
               role="status"
               className="rounded-[10px] border border-verde bg-verde/10 px-4 py-3 text-sm text-verde"
@@ -41,12 +51,12 @@ export default function Contacto() {
               ¡Consulta enviada! Te respondemos a la brevedad.
             </p>
           )}
-          {estado && !estado.ok && (
+          {estadoVisible && !estadoVisible.ok && (
             <p
               role="alert"
               className="rounded-[10px] border border-red-500/60 bg-red-500/10 px-4 py-3 text-sm text-red-400"
             >
-              {estado.error}
+              {estadoVisible.error}
             </p>
           )}
 
@@ -64,7 +74,7 @@ export default function Contacto() {
                 maxLength={100}
                 autoComplete="name"
                 placeholder="Tu nombre"
-                defaultValue={estado?.valores?.nombre}
+                defaultValue={estadoVisible?.valores?.nombre}
                 className={campo}
                 />
             </div>
@@ -81,7 +91,7 @@ export default function Contacto() {
                 maxLength={150}
                 autoComplete="email"
                 placeholder="tucorreo@ejemplo.com"
-                defaultValue={estado?.valores?.email}
+                defaultValue={estadoVisible?.valores?.email}
                 className={campo}
                 />
             </div>
@@ -91,16 +101,19 @@ export default function Contacto() {
             <div className="grid gap-5 sm:grid-cols-2">
               <div>
                 <label htmlFor="pais" className={etiqueta}>
-                  País
+                  País *
                 </label>
                 <select
                   id="pais"
                   name="pais"
+                  required
                   autoComplete="country-name"
-                  defaultValue={estado?.valores?.pais ?? ""}
+                  defaultValue={estadoVisible?.valores?.pais ?? ""}
                   className={`${campo} select-rally`}
                 >
-                  <option value="">Elegí tu país</option>
+                  <option value="" disabled>
+                    Elegí tu país
+                  </option>
                   {PAISES.map((p) => (
                     <option key={p} value={p}>
                       {p}
@@ -111,15 +124,18 @@ export default function Contacto() {
 
               <div>
                 <label htmlFor="experiencia" className={etiqueta}>
-                  Experiencia
+                  Experiencia *
                 </label>
                 <select
                   id="experiencia"
                   name="experiencia"
-                  defaultValue={estado?.valores?.experiencia ?? ""}
+                  required
+                  defaultValue={estadoVisible?.valores?.experiencia ?? ""}
                   className={`${campo} select-rally`}
                 >
-                  <option value="">Elegí tu nivel</option>
+                  <option value="" disabled>
+                    Elegí tu nivel
+                  </option>
                   {EXPERIENCIAS.map((e) => (
                     <option key={e.value} value={e.value}>
                       {e.label}
@@ -137,7 +153,7 @@ export default function Contacto() {
                 id="programa"
                 name="programa"
                 required
-                defaultValue={estado?.valores?.programa ?? ""}
+                defaultValue={estadoVisible?.valores?.programa ?? ""}
                 className={`${campo} select-rally`}
                 >
                 <option value="" disabled>
@@ -162,7 +178,7 @@ export default function Contacto() {
                 rows={4}
                 maxLength={2000}
                 placeholder="Contanos tu auto, categoría y objetivo"
-                defaultValue={estado?.valores?.mensaje}
+                defaultValue={estadoVisible?.valores?.mensaje}
                 className={campo}
                 />
             </div>
@@ -174,11 +190,11 @@ export default function Contacto() {
           </div>
 
           {/* Contenedor del botón */}
-          <div className="flex justify-end pt-2">
+          <div className="flex items-center justify-end gap-3 pt-2">
             <button
               type="submit"
               disabled={enviando}
-              className="inline-flex cursor-pointer items-center gap-2 rounded-[10px] bg-verde px-8 py-3 text-sm font-bold uppercase text-negro transition duration-200 enabled:hover: enabled:hover:shadow-[0_0_18px_rgba(57,255,20,0.6)] disabled:cursor-not-allowed disabled:opacity-70"
+              className="inline-flex cursor-pointer items-center gap-2 rounded-[10px] bg-verde px-8 py-3 text-sm font-bold uppercase text-negro transition duration-200 enabled:hover:shadow-[0_0_18px_rgba(57,255,20,0.6)] disabled:cursor-not-allowed disabled:opacity-70"
             >
               {enviando ? (
                 <>
@@ -189,8 +205,32 @@ export default function Contacto() {
                   Enviando…
                 </>
               ) : (
-                "Enviar consulta →"
+                "Enviar consulta"
               )}
+            </button>
+
+            {/* Botón de reinicio */}
+            <button
+              type="button"
+              onClick={reiniciar}
+              disabled={enviando}
+              aria-label="Reiniciar formulario"
+              title="Reiniciar formulario"
+              className="inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded-[10px] border-2 border-gris-400 text-gris-400 transition duration-200 enabled:hover:border-verde enabled:hover:text-verde disabled:cursor-not-allowed disabled:opacity-70"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                className="h-5 w-5"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden
+              >
+                <polyline points="1 4 1 10 7 10" />
+                <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10" />
+              </svg>
             </button>
           </div>
         </form>
