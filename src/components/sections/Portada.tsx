@@ -12,6 +12,7 @@ export default function Portada() {
         className="object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-negro via-negro/70 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-negro to-transparent" />
 
       <div className="relative mx-auto w-full max-w-6xl px-5 pt-16">
         <h1 className="text-5xl uppercase leading-[0.95] md:text-6xl lg:text-7xl">
@@ -22,7 +23,7 @@ export default function Portada() {
         </h1>
 
         <p className="mt-6 text-sm uppercase tracking-widest text-gris-400">
-          Performance · Técnica · Telemetría · Coaching
+          Rally · Performance · Técnica · Telemetría · Coaching
         </p>
 
         <div className="mt-8 flex flex-wrap gap-4">

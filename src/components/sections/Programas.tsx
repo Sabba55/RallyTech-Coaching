@@ -6,9 +6,9 @@ const programas = programasData as Programa[];
 
 export default function Programas() {
   return (
-    <section id="servicios" className="scroll-mt-20 py-10">
+    <section id="servicios" className="scroll-mt-20 border-t border-gris-700 py-10">
       <div className="mx-auto max-w-6xl px-5">
-        <h2 className="text-3xl font-extrabold uppercase md:text-4xl">
+        <h2 className="text-2xl font-extrabold uppercase md:text-3xl">
           Nuestros <span className="text-verde">programas</span>
         </h2>
         <p className="mt-2 font-medium text-gris-400">

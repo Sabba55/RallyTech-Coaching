@@ -3,6 +3,7 @@ import Footer from "@/components/common/Footer";
 
 // Componentes
 import Portada from "@/components/sections/Portada";
+import QueEsRallytech from "@/components/sections/QueEsRallytech";
 import Programas from "@/components/sections/Programas";
 import Metodo from "@/components/sections/Metodo";
 import SobreMi from "@/components/sections/SobreMi";
@@ -15,6 +16,7 @@ export default function Home() {
       
       <main className="font-bold italic">
         <Portada />
+        <QueEsRallytech />
         <Programas />
         <Metodo />
         <SobreMi />
