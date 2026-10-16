@@ -4,6 +4,7 @@ import { useActionState } from "react";
 import programas from "@/data/programas.json";
 import { enviarContacto } from "@/actions/enviar-contacto";
 import type { RespuestaContacto } from "@/types/contacto";
+import { PAISES, EXPERIENCIAS } from "@/data/opciones-contacto";
 
 const campo =
   "w-full rounded-[10px] border border-gris-700 bg-gris-900 px-4 py-3 text-sm font-medium not-italic text-gris-100 placeholder:text-gris-400 outline-none transition focus:border-verde";
@@ -86,6 +87,48 @@ export default function Contacto() {
             </div>
             </div>
 
+            {/* Fila 2: país | experiencia */}
+            <div className="grid gap-5 sm:grid-cols-2">
+              <div>
+                <label htmlFor="pais" className={etiqueta}>
+                  País
+                </label>
+                <select
+                  id="pais"
+                  name="pais"
+                  autoComplete="country-name"
+                  defaultValue={estado?.valores?.pais ?? ""}
+                  className={`${campo} select-rally`}
+                >
+                  <option value="">Elegí tu país</option>
+                  {PAISES.map((p) => (
+                    <option key={p} value={p}>
+                      {p}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div>
+                <label htmlFor="experiencia" className={etiqueta}>
+                  Experiencia
+                </label>
+                <select
+                  id="experiencia"
+                  name="experiencia"
+                  defaultValue={estado?.valores?.experiencia ?? ""}
+                  className={`${campo} select-rally`}
+                >
+                  <option value="">Elegí tu nivel</option>
+                  {EXPERIENCIAS.map((e) => (
+                    <option key={e.value} value={e.value}>
+                      {e.label}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+
             <div>
                 <label htmlFor="programa" className={etiqueta}>
                 Interesado en *
@@ -95,7 +138,7 @@ export default function Contacto() {
                 name="programa"
                 required
                 defaultValue={estado?.valores?.programa ?? ""}
-                className={campo}
+                className={`${campo} select-rally`}
                 >
                 <option value="" disabled>
                     Elegí una opción

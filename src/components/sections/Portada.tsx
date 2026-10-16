@@ -15,10 +15,10 @@ export default function Portada() {
 
       <div className="relative mx-auto w-full max-w-6xl px-5 pt-16">
         <h1 className="text-5xl uppercase leading-[0.95] md:text-6xl lg:text-7xl">
-          <span className="block font-extrabold">Encontrá</span>
-          <span className="block font-extrabold text-verde">el tiempo.</span>
-          <span className="block font-normal">Desarrollá</span>
-          <span className="block font-normal">al piloto.</span>
+          <span className="block font-extrabold">Más Técnica</span>
+          <span className="block font-extrabold text-verde">Más Control.</span>
+          <span className="block font-normal">Más Velocidad</span>
+          <span className="block font-normal"> </span>
         </h1>
 
         <p className="mt-6 text-sm uppercase tracking-widest text-gris-400">

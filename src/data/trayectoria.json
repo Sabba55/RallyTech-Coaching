@@ -1,15 +1,18 @@
 {
-  "presentacion": "Piloto de rally con más de 15 años de experiencia, campeón y con paso por equipos oficiales. Hoy pone ese recorrido al servicio de pilotos que quieren ser más rápidos: más que experiencia, un método.",
+  "presentacion": "Piloto de rally con más de 15 años de experiencia, campeón y con paso por equipos oficiales. Hoy pone ese recorrido al servicio de pilotos que quieren ser más rápidos.",
   "estadisticas": [
     { "valor": "15+", "etiqueta": "Años en rally" },
-    { "valor": "3+", "etiqueta": "Años como coach" },
-    { "valor": "20+", "etiqueta": "Pilotos entrenados" },
-    { "valor": "Campeones", "etiqueta": "Formados con Rallytech" }
+    { "valor": "5+", "etiqueta": "Años como coach" },
+    { "valor": "20+", "etiqueta": "Pilotos entrenados" }
   ],
-  "hitos": [
-    { "titulo": "Maestro del Rally", "detalle": "Máster de la Tracción Simple, 2021 / 2022" },
-    { "titulo": "Renault Sport", "detalle": "Piloto oficial" },
-    { "titulo": "Peugeot Sport", "detalle": "Piloto de pruebas y desarrollo" },
-    { "titulo": "Toyota", "detalle": "Instructor en clínicas de conducción" }
+  "logros": [
+    { "titulo": "Campeón Argentino de Rally", "detalle": "2013, con 17 años" },
+    { "titulo": "Subcampeón Argentino de Rally", "detalle": "2014" },
+    { "titulo": "Maestro del Rally", "detalle": "Máster de la Tracción Simple, 2021 / 2022" }
+  ],
+  "experiencia": [
+    { "titulo": "Renault Sport", "detalle": "Ex piloto oficial, Chile 2017" },
+    { "titulo": "Peugeot Sport", "detalle": "Ex tester, 2018" },
+    { "titulo": "Toyota Argentina", "detalle": "Instructor de manejo" }
   ]
 }

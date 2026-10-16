@@ -6,8 +6,9 @@
   --color-gris-700: #2a2a2a;
   --color-gris-400: #9a9a9a;
   --color-gris-100: #e6e6e6;
-  --color-verde: #39ff14;
-}
+  --color-verde: #27f444;
+} 
+/* 39ff14 */
 
 body {
   background: var(--color-negro);
@@ -16,4 +17,49 @@ body {
 
 html {
   scroll-behavior: smooth;
+}
+
+.select-rally {
+  color-scheme: dark;
+}
+
+@supports (appearance: base-select) {
+  .select-rally,
+  .select-rally::picker(select) {
+    appearance: base-select;
+  }
+
+  .select-rally::picker(select) {
+    background: var(--color-gris-900);
+    border: 1px solid var(--color-gris-700);
+    border-radius: 10px;
+    padding: 4px;
+    margin-top: 4px;
+  }
+
+  .select-rally::picker-icon {
+    color: var(--color-verde);
+  }
+
+  .select-rally option {
+    padding: 10px 12px;
+    border-radius: 6px;
+    color: var(--color-gris-100);
+    font-size: 0.85rem;
+    font-style: normal;
+    font-weight: 500;
+  }
+
+  .select-rally option:hover {
+    background: var(--color-verde);
+    color: var(--color-negro);
+  }
+
+  .select-rally option:checked {
+    color: var(--color-verde);
+  }
+
+  .select-rally option:checked:focus {
+    color: var(--color-verde);
+  }
 }

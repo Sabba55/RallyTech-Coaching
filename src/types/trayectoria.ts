@@ -11,5 +11,6 @@ export interface Hito {
 export interface Trayectoria {
   presentacion: string;
   estadisticas: Estadistica[];
-  hitos: Hito[];
+  logros: Hito[];
+  experiencia: Hito[];
 }

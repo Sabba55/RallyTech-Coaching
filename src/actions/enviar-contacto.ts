@@ -2,7 +2,12 @@
 
 import programas from "@/data/programas.json";
 import { getResend } from "@/utils/resend";
+import { PAISES, EXPERIENCIAS } from "@/data/opciones-contacto";
 import type { DatosContacto, RespuestaContacto } from "@/types/contacto";
+
+const EXPERIENCIA_LABEL: Record<string, string> = Object.fromEntries(
+  EXPERIENCIAS.map((e) => [e.value, e.label])
+);
 
 const OPCIONES: Record<string, string> = {
   ...Object.fromEntries(programas.map((p) => [p.id, p.nombre])),
@@ -25,6 +30,8 @@ export async function enviarContacto(
   const valores: DatosContacto = {
     nombre: limpiar(formData.get("nombre"), 100),
     email: limpiar(formData.get("email"), 150),
+    pais: limpiar(formData.get("pais"), 60),
+    experiencia: limpiar(formData.get("experiencia"), 30),
     programa: limpiar(formData.get("programa"), 30),
     mensaje: limpiar(formData.get("mensaje"), 2000),
   };
@@ -42,6 +49,14 @@ export async function enviarContacto(
   }
   if (!(valores.programa in OPCIONES)) {
     return { ok: false, error: "Elegí una opción en \"Interesado en\".", valores };
+  }
+
+  if (valores.pais && !PAISES.includes(valores.pais)) {
+  return { ok: false, error: "Elegí un país de la lista.", valores };
+  }
+
+  if (valores.experiencia && !(valores.experiencia in EXPERIENCIA_LABEL)) {
+    return { ok: false, error: "Elegí una opción de experiencia válida.", valores };
   }
 
   const receptor = process.env.RECEPTOR_EMAIL;
@@ -63,6 +78,8 @@ export async function enviarContacto(
       text: [
         `Nombre: ${valores.nombre}`,
         `Correo: ${valores.email}`,
+        `País: ${valores.pais || "(sin indicar)"}`,
+        `Experiencia: ${EXPERIENCIA_LABEL[valores.experiencia] ?? "(sin indicar)"}`,
         `Interesado en: ${OPCIONES[valores.programa]}`,
         "",
         "¿Qué quiere mejorar?",

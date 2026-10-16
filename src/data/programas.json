@@ -18,7 +18,7 @@
     "id": "training",
     "nombre": "Rallytech Training",
     "subtitulo": "Entrenamiento presencial",
-    "imagen": "/images/servicios/programa-training.png",
+    "imagen": "/images/servicios/programa-training.jpg",
     "caracteristicas": [
       "Cursos de 1, 2 o 3 días",
       "Técnica de conducción",
@@ -33,11 +33,11 @@
     "id": "performance",
     "nombre": "Rallytech Performance",
     "subtitulo": "Desarrollo integral del piloto",
-    "imagen": "/images/servicios/programa-performance.jpg",
+    "imagen": "/images/servicios/programa-performance.jpeg",
     "caracteristicas": [
       "Seguimiento durante la temporada",
       "Análisis previo y post carrera",
-      "Telemetría y video análisis",
+      "Análisis de telemetría y video",
       "Trabajo con piloto y copiloto",
       "Estrategia y preparación",
       "Objetivos y plan de evolución",
