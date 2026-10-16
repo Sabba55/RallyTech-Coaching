@@ -27,8 +27,19 @@ export default function Contacto() {
   }
 
   return (
-    <section id="contacto" className="scroll-mt-20 border-t border-gris-700 bg-gris-900 py-10">
-      <div className="mx-auto grid max-w-6xl gap-12 px-5 md:grid-cols-2 md:gap-16">
+    <section id="contacto" className="relative scroll-mt-20 overflow-hidden py-14">
+      {/* Divisor superior con degradé verde */}
+      <div
+        aria-hidden
+        className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-verde/60 to-transparent"
+      />
+      {/* Resplandor de fondo (decorativo) */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -left-40 top-1 h-120 w-136 rounded-full bg-verde/10 blur-3xl"
+      />
+
+      <div className="relative mx-auto grid max-w-6xl gap-12 px-5 md:grid-cols-2 md:gap-16">
         {/* Columna izquierda: mensaje */}
         <div className="flex flex-col justify-center">
           <h2 className="text-3xl font-extrabold uppercase leading-tight md:text-5xl">
@@ -42,7 +53,11 @@ export default function Contacto() {
         </div>
 
         {/* Columna derecha: formulario */}
-        <form key={claveForm} action={accion} className="space-y-5">
+        <form
+          key={claveForm}
+          action={accion}
+          className="space-y-5 rounded-[10px] border border-gris-700 bg-gris-900 p-6 md:p-8"
+        >
           {estadoVisible?.ok && (
             <p
               role="status"

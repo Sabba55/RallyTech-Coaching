@@ -1,17 +1,12 @@
 import Image from "next/image";
+import Redes from "@/components/common/Redes";
 
-const redes = [
-  {
-    nombre: "Instagram",
-    href: "https://www.instagram.com/rallytech_coaching/", 
-    icono: (
-      <>
-        <rect x="4" y="4" width="16" height="16" rx="4" />
-        <circle cx="12" cy="12" r="3" />
-        <path d="M16.5 7.5v.01" />
-      </>
-    ),
-  },
+const enlaces = [
+  { href: "#inicio", texto: "Inicio" },
+  { href: "#servicios", texto: "Servicios" },
+  { href: "#metodos", texto: "Métodos" },
+  { href: "#quien-soy", texto: "¿Quién soy?" },
+  { href: "#contacto", texto: "Contacto" },
 ];
 
 // Guarda el año en caché para que Next lo trate como un valor estable
@@ -22,46 +17,62 @@ async function Anio() {
 
 export default function Footer() {
   return (
-    <footer className="border-t border-gris-700 py-8">
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-5 text-sm text-gris-400 md:flex-row">
-        <a href="#inicio" aria-label="Rallytech, ir al inicio">
-          <Image
-            src="/images/logo/logo-rallytech.png"
-            alt="Rallytech Coaching by Samir Assaf"
-            width={400}
-            height={100}
-            priority
-            className="h-10 w-auto md:h-12"
-          />
-        </a>
-        <p>© <Anio /> Rallytech Coaching. Todos los derechos reservados.</p>
-        
-        {/* Los links a redes se completan cuando el cliente los envíe */}
-        <div className="flex items-center gap-4">
-          {redes.map((r) => (
-            <a
-              key={r.nombre}
-              href={r.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={r.nombre}
-              className="text-gris-400 transition duration-200 hover:text-verde"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                className="h-6 w-6"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden
-              >
-                {r.icono}
-              </svg>
-            </a>
-          ))}
+    <footer className="border-t border-gris-700 bg-gris-900">
+      <div className="mx-auto grid max-w-6xl gap-10 px-5 py-12 md:grid-cols-[1.5fr_1fr_1fr]">
+        {/* Marca */}
+        <div>
+          <a href="#inicio" aria-label="Rallytech, ir al inicio">
+            <Image
+              src="/images/logo/logo-rallytech.png"
+              alt="Rallytech Coaching by Samir Assaf"
+              width={400}
+              height={100}
+              priority
+              className="h-12 w-auto"
+            />
+          </a>
+          <p className="mt-4 max-w-xs text-sm font-medium text-gris-400">
+            Más técnica. Más control.{" "}
+            <span className="text-verde">Más rápido.</span>
+          </p>
         </div>
+
+        {/* Navegación */}
+        <nav aria-label="Pie de página">
+          <h3 className="text-xs uppercase tracking-widest text-gris-400">
+            Navegación
+          </h3>
+          <ul className="mt-4 space-y-2 text-sm uppercase">
+            {enlaces.map((e) => (
+              <li key={e.href}>
+                <a
+                  href={e.href}
+                  className="transition duration-200 hover:text-verde"
+                >
+                  {e.texto}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        {/* Redes */}
+        <div>
+          <h3 className="text-xs uppercase tracking-widest text-gris-400">
+            Seguinos
+          </h3>
+          <Redes
+            className="mt-4"
+            hrefs={{ Instagram: "https://www.instagram.com/rallytech_coaching/" }}
+          />
+        </div>
+      </div>
+
+      {/* Barra inferior */}
+      <div className="border-t border-gris-700">
+        <p className="mx-auto max-w-6xl px-5 py-5 text-center text-xs text-gris-400 md:text-left">
+          © <Anio /> Rallytech Coaching. Todos los derechos reservados.
+        </p>
       </div>
     </footer>
   );

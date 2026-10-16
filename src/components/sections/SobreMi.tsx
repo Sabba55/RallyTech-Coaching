@@ -76,6 +76,7 @@ export default function SobreMi() {
       id="quien-soy"
       className="scroll-mt-20 border-t border-gris-700 bg-gris-900 py-10"
     >
+      
       <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 md:grid-cols-[320px_1fr] md:gap-16">
         {/* Div izquierdo: 2 filas (foto + redes) */}
         <div className="mx-auto flex w-full max-w-xs flex-col gap-5">
