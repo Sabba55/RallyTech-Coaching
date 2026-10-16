@@ -4,4 +4,6 @@ export interface Programa {
   subtitulo: string;
   imagen: string;
   caracteristicas: string[];
+  /** Aclaración opcional que se muestra al final de la tarjeta */
+  aclaracion?: string;
 }

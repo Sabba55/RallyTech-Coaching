@@ -28,12 +28,32 @@ export default function TarjetaPrograma({ programa }: { programa: Programa }) {
         <ul className="mt-6 space-y-2.5 text-sm font-medium">
           {programa.caracteristicas.map((c) => (
             <li key={c} className="flex items-start gap-3">
-              {/* Reemplazar por el ícono SVG de public/icons cuando estén */}
               <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-verde" />
               {c}
             </li>
           ))}
         </ul>
+
+        {programa.aclaracion && (
+          <p className="flex items-start gap-2 pt-4 text-xs font-medium leading-relaxed text-gris-100">
+            <svg
+              viewBox="0 0 25 25"
+              className="mt-px h-4 w-4 shrink-0 text-yellow-400"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden
+            >
+              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+              <line x1="12" y1="9" x2="12" y2="13" />
+              <line x1="12" y1="17" x2="12.01" y2="17" />
+            </svg>
+            <span className="sr-only">Importante: </span>
+            {programa.aclaracion}
+          </p>
+        )}
 
         <a
           href="#contacto"
