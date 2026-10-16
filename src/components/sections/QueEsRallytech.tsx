@@ -10,7 +10,7 @@ export default function QueEsRallytech() {
       <div className="relative mx-auto max-w-6xl px-5">
         {/* Encabezado */}
         <div className="flex items-center gap-3">
-          <span className="h-0.5 w-6 bg-verde" aria-hidden />
+          <span className="hidden h-0.5 w-6 bg-verde sm:block" aria-hidden />
           <p className="text-3xl md:text-3xl font-extrabold uppercase tracking-widest text-verde">
             Somos Rallytech Coaching
           </p>

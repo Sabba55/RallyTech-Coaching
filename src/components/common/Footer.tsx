@@ -18,7 +18,7 @@ async function Anio() {
 export default function Footer() {
   return (
     <footer className="border-t border-gris-700 bg-gris-900">
-      <div className="mx-auto grid max-w-6xl gap-10 px-5 py-12 md:grid-cols-[1.5fr_1fr_1fr]">
+      <div className="mx-auto grid max-w-6xl gap-10 px-5 py-12 text-center sm:text-left md:grid-cols-[1.5fr_1fr_1fr]">
         {/* Marca */}
         <div>
           <a href="#inicio" aria-label="Rallytech, ir al inicio">
@@ -28,10 +28,10 @@ export default function Footer() {
               width={400}
               height={100}
               priority
-              className="h-12 w-auto"
+              className="mx-auto h-12 w-auto sm:mx-0"
             />
           </a>
-          <p className="mt-4 max-w-xs text-sm font-medium text-gris-400">
+          <p className="mx-auto mt-4 max-w-xs text-sm font-medium text-gris-400 sm:mx-0">
             Más técnica. Más control.{" "}
             <span className="text-verde">Más rápido.</span>
           </p>
@@ -62,7 +62,7 @@ export default function Footer() {
             Seguinos
           </h3>
           <Redes
-            className="mt-4"
+            className="mt-4 justify-center sm:justify-start"
             hrefs={{ Instagram: "https://www.instagram.com/rallytech_coaching/" }}
           />
         </div>

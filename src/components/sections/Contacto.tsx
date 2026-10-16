@@ -41,12 +41,12 @@ export default function Contacto() {
 
       <div className="relative mx-auto grid max-w-6xl gap-12 px-5 md:grid-cols-2 md:gap-16">
         {/* Columna izquierda: mensaje */}
-        <div className="flex flex-col justify-center">
+        <div className="flex flex-col justify-center text-center sm:text-left">
           <h2 className="text-3xl font-extrabold uppercase leading-tight md:text-5xl">
             ¿Dónde estás
             <span className="block text-verde">perdiendo tiempo?</span>
           </h2>
-          <p className="mt-5 max-w-md font-medium text-gris-100">
+          <p className="mx-auto mt-5 max-w-md font-medium text-gris-100 sm:mx-0">
             Contanos sobre tu auto, categoría, experiencia y objetivo. Te
             ayudamos a encontrar el próximo paso.
           </p>
