@@ -122,18 +122,18 @@ export default function SobreMi() {
 
         {/* Div derecho: contenido */}
         <div>
-          <h2 className="text-3xl font-extrabold uppercase md:text-4xl">
+          <h2 className="text-center text-3xl font-extrabold uppercase sm:text-left md:text-4xl">
             ¿Quién es <span className="text-verde">Samir Assaf?</span>
           </h2>
 
-          <p className="mt-4 max-w-xl font-medium leading-relaxed text-gris-100">
+          <p className="mx-auto mt-4 max-w-xl text-center font-medium leading-relaxed text-gris-100 sm:mx-0 sm:text-left">
             {trayectoria.presentacion}
           </p>
 
           {/* Estadísticas */}
-          <div className="mt-8 flex flex-wrap gap-x-10 gap-y-6">
+          <div className="mt-8 flex flex-wrap justify-center gap-x-10 gap-y-6 sm:justify-start">
             {trayectoria.estadisticas.map((e) => (
-              <div key={e.etiqueta}>
+              <div key={e.etiqueta} className="text-center sm:text-left">
                 <p className="text-3xl font-extrabold uppercase text-verde">
                   {e.valor}
                 </p>

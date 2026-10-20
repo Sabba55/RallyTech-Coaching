@@ -205,7 +205,7 @@ export default function Contacto() {
           </div>
 
           {/* Contenedor del botón */}
-          <div className="flex items-center justify-end gap-3 pt-2">
+          <div className="flex items-center justify-center gap-3 pt-2 sm:justify-end">
             <button
               type="submit"
               disabled={enviando}
