@@ -1,12 +1,22 @@
 import Image from "next/image";
 import type { Programa } from "@/types/programa";
+import { retraso } from "@/utils/reveal";
 
-export default function TarjetaPrograma({ programa }: { programa: Programa }) {
+export default function TarjetaPrograma({
+  programa,
+  indice = 0,
+}: {
+  programa: Programa;
+  /** Posición en la grilla, para escalonar la animación */
+  indice?: number;
+}) {
   // "Rallytech Online" -> marca: "Rallytech", resto: "Online"
   const [marca, ...resto] = programa.nombre.split(" ");
 
   return (
-    <article className="group relative flex min-h-[30rem] overflow-hidden rounded-[10px] border border-gris-700 bg-gris-900">
+    <article
+      style={retraso(indice * 120)}
+      className="reveal group relative flex min-h-[30rem] overflow-hidden rounded-[10px] border border-gris-700 bg-gris-900">
       <Image
         src={programa.imagen}
         alt=""

@@ -1,5 +1,7 @@
 import type { ReactNode } from "react";
 import Image from "next/image";
+import CountUp from "@/components/ui/CountUp";
+import { retraso } from "@/utils/reveal";
 import trayectoriaData from "@/data/trayectoria.json";
 import type { Hito, Trayectoria } from "@/types/trayectoria";
 
@@ -79,7 +81,7 @@ export default function SobreMi() {
       
       <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 md:grid-cols-[320px_1fr] md:gap-16">
         {/* Div izquierdo: 2 filas (foto + redes) */}
-        <div className="mx-auto flex w-full max-w-xs flex-col gap-5">
+        <div className="reveal mx-auto flex w-full max-w-xs flex-col gap-5">
           {/* Fila 1: foto */}
           <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[10px] border border-gris-700 bg-gris-900">
             <Image
@@ -122,20 +124,26 @@ export default function SobreMi() {
 
         {/* Div derecho: contenido */}
         <div>
-          <h2 className="text-center text-3xl font-extrabold uppercase sm:text-left md:text-4xl">
+          <h2 className="reveal text-center text-3xl font-extrabold uppercase sm:text-left md:text-4xl">
             ¿Quién es <span className="text-verde">Samir Assaf?</span>
           </h2>
 
-          <p className="mx-auto mt-4 max-w-xl text-center font-medium leading-relaxed text-gris-100 sm:mx-0 sm:text-left">
+          <p
+            className="reveal mx-auto mt-4 max-w-xl text-center font-medium leading-relaxed text-gris-100 sm:mx-0 sm:text-left"
+            style={retraso(100)}
+          >
             {trayectoria.presentacion}
           </p>
 
           {/* Estadísticas */}
-          <div className="mt-8 flex flex-wrap justify-center gap-x-10 gap-y-6 sm:justify-start">
+          <div
+            className="reveal mt-8 flex flex-wrap justify-center gap-x-10 gap-y-6 sm:justify-start"
+            style={retraso(200)}
+          >
             {trayectoria.estadisticas.map((e) => (
               <div key={e.etiqueta} className="text-center sm:text-left">
                 <p className="text-3xl font-extrabold uppercase text-verde">
-                  {e.valor}
+                  <CountUp valor={e.valor} />
                 </p>
                 <p className="mt-1 text-xs uppercase tracking-widest text-gris-400">
                   {e.etiqueta}
@@ -145,7 +153,7 @@ export default function SobreMi() {
           </div>
 
           {/* Logros y experiencia */}
-          <div className="mt-10 grid gap-8 sm:grid-cols-2">
+          <div className="reveal mt-10 grid gap-8 sm:grid-cols-2" style={retraso(300)}>
             <ListaHitos titulo="Logros deportivos" items={trayectoria.logros} />
             <ListaHitos
               titulo="Experiencia profesional"

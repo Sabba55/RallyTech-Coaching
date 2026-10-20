@@ -1,3 +1,4 @@
+import { retraso } from "@/utils/reveal";
 import type { ReactNode } from "react";
 
 function Icono({ children }: { children: ReactNode }) {
@@ -77,7 +78,7 @@ export default function Metodo() {
     <section id="metodos" className="scroll-mt-20 border-t border-gris-700 py-10">
       <div className="mx-auto max-w-6xl px-5">
         <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-          <div>
+          <div className="reveal">
             <h2 className="text-3xl font-extrabold uppercase md:text-4xl">
               El método <span className="text-verde">Rallytech</span>
             </h2>
@@ -90,7 +91,11 @@ export default function Metodo() {
         <ol className="mt-8 grid gap-12 sm:grid-cols-2 lg:grid-cols-5 lg:gap-8">
           {pasos.map((p, i) => (
             // Contenedor padre del método: 2 divs apilados
-            <li key={p.numero} className="relative flex flex-col gap-4">
+            <li
+              key={p.numero}
+              style={retraso(i * 100)}
+              className="reveal relative flex flex-col gap-4"
+            >
               {/* Div 1: 2 columnas */}
               <div className="flex items-center justify-center gap-6">
                 {/* Columna 1: número y, debajo, la línea verde */}

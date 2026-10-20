@@ -1,5 +1,6 @@
 import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 // Componentes
 import Portada from "@/components/sections/Portada";
@@ -24,6 +25,7 @@ export default function Home() {
       </main>
 
       <Footer />
+      <ScrollReveal />
     </>
   );
 }

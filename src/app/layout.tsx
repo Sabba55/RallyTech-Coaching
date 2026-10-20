@@ -31,7 +31,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <body className={exo.className}>{children}</body>
+      <body className={exo.className}>
+        {/* Sin JavaScript no hay animación: el contenido se muestra completo */}
+        <noscript>
+          <style>{".reveal{opacity:1!important;transform:none!important}"}</style>
+        </noscript>
+        {children}
+      </body>
     </html>
   );
 }

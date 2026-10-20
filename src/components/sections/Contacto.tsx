@@ -1,6 +1,7 @@
 "use client";
 
 import { useActionState, useState } from "react";
+import { retraso } from "@/utils/reveal";
 import programas from "@/data/programas.json";
 import { enviarContacto } from "@/actions/enviar-contacto";
 import type { RespuestaContacto } from "@/types/contacto";
@@ -41,7 +42,7 @@ export default function Contacto() {
 
       <div className="relative mx-auto grid max-w-6xl gap-12 px-5 md:grid-cols-2 md:gap-16">
         {/* Columna izquierda: mensaje */}
-        <div className="flex flex-col justify-center text-center sm:text-left">
+        <div className="reveal flex flex-col justify-center text-center sm:text-left">
           <h2 className="text-3xl font-extrabold uppercase leading-tight md:text-5xl">
             ¿Dónde estás
             <span className="block text-verde">perdiendo tiempo?</span>
@@ -52,7 +53,8 @@ export default function Contacto() {
           </p>
         </div>
 
-        {/* Columna derecha: formulario */}
+        {/* Columna derecha: formulario (la tarjeta completa aparece de una vez) */}
+        <div className="reveal" style={retraso(150)}>
         <form
           key={claveForm}
           action={accion}
@@ -251,6 +253,7 @@ export default function Contacto() {
             </button>
           </div>
         </form>
+        </div>
       </div>
     </section>
   );
