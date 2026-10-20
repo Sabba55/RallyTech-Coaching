@@ -103,3 +103,37 @@ html {
     transition: none;
   }
 }
+
+/* Barra de scroll */
+html {
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-gris-700) var(--color-negro);
+}
+
+/* Chrome, Edge y Safari */
+@supports selector(::-webkit-scrollbar) {
+  html {
+    scrollbar-width: auto;
+    scrollbar-color: auto;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-negro);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-gris-700);
+    border: 2px solid var(--color-negro);
+    border-radius: 999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-verde);
+  }
+}

@@ -5,6 +5,7 @@ import Image from "next/image";
 
 const enlaces = [
   { href: "#inicio", texto: "Inicio" },
+  { href: "#que-es", texto: "Nosotros" },
   { href: "#servicios", texto: "Servicios" },
   { href: "#metodos", texto: "Métodos" },
   { href: "#quien-soy", texto: "¿Quién soy?" },
@@ -29,14 +30,14 @@ export default function Header() {
             />
         </a>
 
-        <nav className="hidden items-center gap-8 text-sm uppercase tracking-wide md:flex">
+        <nav className="hidden items-center gap-8 text-sm uppercase tracking-wide min-[911px]:flex">
           {enlaces.map((e) => (
             <a
               key={e.href}
               href={e.href}
               className={
                 e.destacado
-                  ? "rounded-[10px] bg-verde px-5 py-2 font-bold text-negro border border-white border-2 transition duration-200 hover: hover:shadow-[0_0_18px_rgba(57,255,20,0.6)] hover:brightness-110"
+                  ? "rounded-[10px] border-2 border-verde px-5 py-2 font-bold text-verde transition duration-200 hover:shadow-[0_0_18px_rgba(57,255,20,0.6)]"
                   : "transition hover:text-verde"
               }
             >
@@ -46,7 +47,7 @@ export default function Header() {
         </nav>
 
         <button
-          className="md:hidden"
+          className="min-[911px]:hidden"
           onClick={() => setAbierto(!abierto)}
           aria-label="Abrir menú"
           aria-expanded={abierto}
@@ -56,7 +57,7 @@ export default function Header() {
       </div>
 
       {abierto && (
-        <nav className="flex flex-col gap-4 border-t border-gris-700 bg-negro px-5 py-4 md:hidden">
+        <nav className="flex flex-col gap-4 border-t border-gris-700 bg-negro px-5 py-4 min-[911px]:hidden">
           {enlaces.map((e) => (
             <a
               key={e.href}

@@ -1,20 +1,21 @@
 import Image from "next/image";
 import Redes from "@/components/common/Redes";
-
+ 
 const enlaces = [
   { href: "#inicio", texto: "Inicio" },
+  { href: "#que-es", texto: "Nosotros" },
   { href: "#servicios", texto: "Servicios" },
   { href: "#metodos", texto: "Métodos" },
   { href: "#quien-soy", texto: "¿Quién soy?" },
   { href: "#contacto", texto: "Contacto" },
 ];
-
+ 
 // Guarda el año en caché para que Next lo trate como un valor estable
 async function Anio() {
   "use cache";
   return <>{new Date().getFullYear()}</>;
 }
-
+ 
 export default function Footer() {
   return (
     <footer className="border-t border-gris-700 bg-gris-900">
@@ -36,7 +37,7 @@ export default function Footer() {
             <span className="text-verde">Más rápido.</span>
           </p>
         </div>
-
+ 
         {/* Navegación */}
         <nav aria-label="Pie de página">
           <h3 className="text-xs uppercase tracking-widest text-gris-400">
@@ -55,7 +56,7 @@ export default function Footer() {
             ))}
           </ul>
         </nav>
-
+ 
         {/* Redes */}
         <div>
           <h3 className="text-xs uppercase tracking-widest text-gris-400">
@@ -70,8 +71,8 @@ export default function Footer() {
 
       {/* Barra inferior */}
       <div className="border-t border-gris-700">
-        <p className="mx-auto max-w-6xl px-5 py-5 text-center text-xs text-gris-400 md:text-left">
-          © <Anio /> Rallytech Coaching. Todos los derechos reservados.
+        <p className="mx-auto max-w-6xl px-5 py-5 text-center text-xs text-gris-400 md:text-center">
+          Desarrollado por Martin Sabbatini | © <Anio /> Rallytech Coaching. Todos los derechos reservados.
         </p>
       </div>
     </footer>
