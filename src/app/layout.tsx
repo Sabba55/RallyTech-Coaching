@@ -15,17 +15,17 @@ export const metadata: Metadata = {
   ),
   title: "RallyTech Coaching | by Samir Assaf",
   description:
-    "Coaching, análisis de telemetría y entrenamiento de rally. Encontrá el tiempo, desarrollá al piloto.",
+    "Más técnica. Más control. Más rápido. Tu próximo nivel empieza acá.",
   openGraph: {
     title: "RallyTech Coaching | by Samir Assaf",
-    description: "Coaching, análisis de telemetría y entrenamiento de rally.",
+    description: "Más técnica. Más control. Más rápido. Tu próximo nivel empieza acá.",
     url: "/",
     siteName: "RallyTech Coaching",
     images: [
       {
-        url: "/icon.png",
-        width: 524,
-        height: 524,
+        url: "/images/og.jpg",
+        width: 500,
+        height: 500,
         alt: "RallyTech Coaching by Samir Assaf",
       },
     ],
@@ -35,8 +35,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary",
     title: "RallyTech Coaching | by Samir Assaf",
-    description: "Coaching, análisis de telemetría y entrenamiento de rally.",
-    images: ["/icon.png"],
+    description: "Más técnica. Más control. Más rápido. Tu próximo nivel empieza acá.",
+    images: ["/images/og.jpg"],
   },
 };
 
