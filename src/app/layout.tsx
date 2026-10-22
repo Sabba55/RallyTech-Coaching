@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Exo_2 } from "next/font/google";
 import "./globals.css";
+import { URL_SITIO } from "@/utils/sitio";
 
 const exo = Exo_2({
   subsets: ["latin"],
@@ -10,14 +11,13 @@ const exo = Exo_2({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://rallytechcoaching.netlify.app"
-  ),
-  title: "RallyTech Coaching | by Samir Assaf",
+  metadataBase: new URL(URL_SITIO),
+  alternates: { canonical: "/" },
+  title: "RallyTech Coaching",
   description:
     "Más técnica. Más control. Más rápido. Tu próximo nivel empieza acá.",
   openGraph: {
-    title: "RallyTech Coaching | by Samir Assaf",
+    title: "RallyTech Coaching",
     description: "Más técnica. Más control. Más rápido. Tu próximo nivel empieza acá.",
     url: "/",
     siteName: "RallyTech Coaching",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "RallyTech Coaching | by Samir Assaf",
+    title: "RallyTech Coaching",
     description: "Más técnica. Más control. Más rápido. Tu próximo nivel empieza acá.",
     images: ["/images/og.jpg"],
   },
