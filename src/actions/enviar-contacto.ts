@@ -1,6 +1,7 @@
 "use server";
 
 import { getResend } from "@/utils/resend";
+import { htmlConsulta } from "@/utils/plantilla-email";
 import { PAISES, EXPERIENCIAS } from "@/data/opciones-contacto";
 import { IDIOMA_POR_DEFECTO, esIdioma } from "@/i18n/config";
 import { diccionarios } from "@/i18n/textos";
@@ -82,6 +83,16 @@ export async function enviarContacto(
       to: receptor,
       replyTo: valores.email,
       subject: `Nueva consulta de ${valores.nombre.replace(/[\r\n]+/g, " ")}`,
+      html: htmlConsulta({
+        nombre: valores.nombre,
+        email: valores.email,
+        pais: valores.pais,
+        experiencia: EXPERIENCIA_LABEL[valores.experiencia],
+        programa: OPCIONES[valores.programa],
+        mensaje: valores.mensaje,
+        idioma,
+      }),
+      // Versión en texto plano, por si el cliente de mail no muestra HTML
       text: [
         `Nombre: ${valores.nombre}`,
         `Correo: ${valores.email}`,
