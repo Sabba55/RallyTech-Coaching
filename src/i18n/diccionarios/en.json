@@ -1,0 +1,238 @@
+{
+  "navegacion": {
+    "inicio": "Home",
+    "nosotros": "About us",
+    "servicios": "Services",
+    "metodos": "Method",
+    "quienSoy": "Who am I?",
+    "contacto": "Contact",
+    "irAlInicio": "Rallytech, go to top",
+    "abrirMenu": "Open menu"
+  },
+  "selectorIdioma": {
+    "etiqueta": "Language",
+    "nombres": {
+      "es": "Español",
+      "en": "English"
+    }
+  },
+  "portada": {
+    "altFondo": "Rally car in action",
+    "linea1": "More Technique",
+    "linea2": "More Control.",
+    "linea3": "Faster",
+    "etiquetas": "Rally · Performance · Technique · Telemetry · Coaching",
+    "quieroMejorar": "I want to improve →",
+    "verMetodo": "See the method"
+  },
+  "queEs": {
+    "titulo": "We are Rallytech Coaching",
+    "frase": {
+      "antes": "We believe every driver has untapped",
+      "destacado1": "potential",
+      "medio": "waiting to be unlocked and a",
+      "destacado2": "dream",
+      "despues": "to chase."
+    },
+    "parrafo1": "At Rallytech we turn that passion into progress, combining experience, technique and personalized training to take every driver to their best version.",
+    "pilotos": "drivers have already trusted us, including several champions.",
+    "parrafo2": "Today we want to invite you to be part of this experience, push your limits and find out how far you can go.",
+    "lema1": "More technique. More control.",
+    "lema2": "Faster.",
+    "cierre": "Your next level starts here."
+  },
+  "programas": {
+    "titulo1": "Our",
+    "titulo2": "programs",
+    "subtitulo": "Solutions for every stage of your development as a driver.",
+    "masInfo": "More info →",
+    "importante": "Important: ",
+    "lista": [
+      {
+        "id": "online",
+        "nombre": "Rallytech Online",
+        "subtitulo": "Remote analysis and coaching",
+        "caracteristicas": [
+          "Onboard analysis",
+          "Telemetry analysis",
+          "Driving technique",
+          "Pace notes and communication",
+          "Identifying time losses",
+          "Personalized work plan",
+          "Follow-up video calls"
+        ]
+      },
+      {
+        "id": "training",
+        "nombre": "Rallytech Training",
+        "subtitulo": "In-person training",
+        "caracteristicas": [
+          "1, 2 or 3-day courses",
+          "Driving technique",
+          "Braking and weight transfer",
+          "Racing lines and car control",
+          "Pace notes and road reading",
+          "Onboard and telemetry analysis",
+          "Debrief and improvement plan"
+        ],
+        "aclaracion": "Tests are always carried out in the owner's car, which must have a rally car and a recce car."
+      },
+      {
+        "id": "performance",
+        "nombre": "Rallytech Performance",
+        "subtitulo": "Complete driver development",
+        "caracteristicas": [
+          "Season-long follow-up",
+          "Pre- and post-event analysis",
+          "Telemetry and video analysis",
+          "Work with driver and co-driver",
+          "Strategy and preparation",
+          "Goals and development plan",
+          "Support at events"
+        ],
+        "aclaracion": "Tests are always carried out in the owner's car, which must have a rally car and a recce car."
+      }
+    ]
+  },
+  "metodo": {
+    "titulo1": "The",
+    "titulo2": "Rallytech",
+    "titulo3": "method",
+    "subtitulo": "From data to results.",
+    "pasos": [
+      {
+        "titulo": "Analyze",
+        "texto": "Understand the driver. Onboard, telemetry, notes and car."
+      },
+      {
+        "titulo": "Detect",
+        "texto": "Find where time is being lost. Prioritize what matters."
+      },
+      {
+        "titulo": "Train",
+        "texto": "Work with specific drills and applied corrections."
+      },
+      {
+        "titulo": "Measure",
+        "texto": "Compare data. See real progress."
+      },
+      {
+        "titulo": "Compete",
+        "texto": "Apply what you've learned in the race. Results."
+      }
+    ]
+  },
+  "sobreMi": {
+    "altFoto": "Samir Assaf, founder of Rallytech",
+    "titulo1": "Who is",
+    "titulo2": "Samir Assaf?",
+    "logros": "Racing achievements",
+    "experiencia": "Professional experience"
+  },
+  "trayectoria": {
+    "presentacion": "Rally driver with more than 15 years of experience, a champion with stints at official factory teams. Today he puts that track record at the service of drivers who want to be faster.",
+    "estadisticas": [
+      {
+        "valor": "15+",
+        "etiqueta": "Years in rally"
+      },
+      {
+        "valor": "5+",
+        "etiqueta": "Years as a coach"
+      },
+      {
+        "valor": "30+",
+        "etiqueta": "Drivers trained"
+      }
+    ],
+    "logros": [
+      {
+        "titulo": "Argentine Rally Champion",
+        "detalle": "2013, at age 17"
+      },
+      {
+        "titulo": "Argentine Rally Runner-up",
+        "detalle": "2014"
+      },
+      {
+        "titulo": "Rally Master",
+        "detalle": "Tracción Simple Master (single-drive category), 2021 / 2022"
+      }
+    ],
+    "experiencia": [
+      {
+        "titulo": "Renault Sport",
+        "detalle": "Former official driver, Chile 2017"
+      },
+      {
+        "titulo": "Peugeot Sport",
+        "detalle": "Former test driver, 2018"
+      },
+      {
+        "titulo": "Toyota Argentina",
+        "detalle": "Driving instructor"
+      }
+    ]
+  },
+  "contacto": {
+    "titulo1": "Where are you",
+    "titulo2": "losing time?",
+    "texto": "Tell us about your car, class, experience and goal. We'll help you find your next step.",
+    "exito": "Message sent! We'll get back to you shortly.",
+    "nombre": "Name *",
+    "nombrePlaceholder": "Your name",
+    "email": "Email *",
+    "emailPlaceholder": "youremail@example.com",
+    "pais": "Country *",
+    "paisPlaceholder": "Choose your country",
+    "experiencia": "Experience *",
+    "experienciaPlaceholder": "Choose your level",
+    "interes": "Interested in *",
+    "interesPlaceholder": "Choose an option",
+    "noSeguro": "I'm not sure",
+    "mensaje": "What do you want to improve?",
+    "mensajePlaceholder": "Tell us about your car, class and goal",
+    "trampaBots": "Do not fill in",
+    "enviar": "Send message",
+    "enviando": "Sending…",
+    "reiniciar": "Reset form",
+    "paises": {
+      "Argentina": "Argentina",
+      "Bolivia": "Bolivia",
+      "Brasil": "Brazil",
+      "Chile": "Chile",
+      "Colombia": "Colombia",
+      "Ecuador": "Ecuador",
+      "España": "Spain",
+      "Estados Unidos": "United States",
+      "México": "Mexico",
+      "Paraguay": "Paraguay",
+      "Perú": "Peru",
+      "Uruguay": "Uruguay",
+      "Venezuela": "Venezuela",
+      "Otro": "Other"
+    },
+    "experiencias": {
+      "principiante": "Beginner",
+      "intermedio-avanzado": "Intermediate/Advanced",
+      "profesional": "Professional"
+    }
+  },
+  "errores": {
+    "camposObligatorios": "Please fill in your name, email, country, experience level and the program you're interested in.",
+    "emailInvalido": "The email address is not valid.",
+    "programaInvalido": "Choose an option under \"Interested in\".",
+    "paisInvalido": "Choose a country from the list.",
+    "experienciaInvalida": "Choose a valid experience level.",
+    "envioFallido": "We couldn't send your message. Please try again later."
+  },
+  "pie": {
+    "ariaPie": "Footer",
+    "navegacion": "Navigation",
+    "seguinos": "Follow us",
+    "lema1": "More technique. More control.",
+    "lema2": "Faster.",
+    "desarrolladoPor": "Developed by Martin Sabbatini | ©",
+    "derechos": "Rallytech Coaching. All rights reserved."
+  }
+}

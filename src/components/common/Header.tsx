@@ -2,24 +2,28 @@
 
 import { useState } from "react";
 import Image from "next/image";
-
-const enlaces = [
-  { href: "#inicio", texto: "Inicio" },
-  { href: "#que-es", texto: "Nosotros" },
-  { href: "#servicios", texto: "Servicios" },
-  { href: "#metodos", texto: "Métodos" },
-  { href: "#quien-soy", texto: "¿Quién soy?" },
-  { href: "#contacto", texto: "Contacto", destacado: true },
-];
+import SelectorIdioma from "@/components/common/SelectorIdioma";
+import { useIdioma } from "@/i18n/IdiomaProvider";
 
 export default function Header() {
+  const { t } = useIdioma();
+  const textos = t.navegacion;
   const [abierto, setAbierto] = useState(false);
+
+  const enlaces = [
+    { href: "#inicio", texto: textos.inicio },
+    { href: "#que-es", texto: textos.nosotros },
+    { href: "#servicios", texto: textos.servicios },
+    { href: "#metodos", texto: textos.metodos },
+    { href: "#quien-soy", texto: textos.quienSoy },
+    { href: "#contacto", texto: textos.contacto, destacado: true },
+  ];
 
   return (
     <header className="fixed top-0 z-50 w-full border-b border-gris-700 bg-negro/90 backdrop-blur">
       <div className="flex h-20 items-center justify-between px-5 md:px-9">
-        
-        <a href="#inicio" aria-label="Rallytech, ir al inicio">
+
+        <a href="#inicio" aria-label={textos.irAlInicio}>
             <Image
                 src="/images/logo/logo-rallytech.png"
                 alt="Rallytech Coaching by Samir Assaf"
@@ -44,16 +48,22 @@ export default function Header() {
               {e.texto}
             </a>
           ))}
+
+          {/* Selector de idioma: a la derecha de "Contacto" */}
+          <SelectorIdioma />
         </nav>
 
-        <button
-          className="min-[911px]:hidden"
-          onClick={() => setAbierto(!abierto)}
-          aria-label="Abrir menú"
-          aria-expanded={abierto}
-        >
-          <span className="text-2xl">{abierto ? "✕" : "☰"}</span>
-        </button>
+        {/* En celular: selector de idioma + botón del menú */}
+        <div className="flex items-center gap-4 min-[911px]:hidden">
+          <SelectorIdioma />
+          <button
+            onClick={() => setAbierto(!abierto)}
+            aria-label={textos.abrirMenu}
+            aria-expanded={abierto}
+          >
+            <span className="text-2xl">{abierto ? "✕" : "☰"}</span>
+          </button>
+        </div>
       </div>
 
       {abierto && (

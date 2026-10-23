@@ -1,5 +1,6 @@
 import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
+import Anio from "@/components/common/Anio";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
 // Componentes
@@ -24,7 +25,7 @@ export default function Home() {
         <Contacto />
       </main>
 
-      <Footer />
+      <Footer anio={<Anio />} />
       <ScrollReveal />
     </>
   );

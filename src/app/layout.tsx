@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Exo_2 } from "next/font/google";
 import "./globals.css";
 import { URL_SITIO } from "@/utils/sitio";
+import { IdiomaProvider } from "@/i18n/IdiomaProvider";
 
 const exo = Exo_2({
   subsets: ["latin"],
@@ -52,7 +53,7 @@ export default function RootLayout({
         <noscript>
           <style>{".reveal{opacity:1!important;transform:none!important}"}</style>
         </noscript>
-        {children}
+        <IdiomaProvider>{children}</IdiomaProvider>
       </body>
     </html>
   );

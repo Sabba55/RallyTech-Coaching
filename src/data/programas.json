@@ -1,49 +1,5 @@
-[
-  {
-    "id": "online",
-    "nombre": "Rallytech Online",
-    "subtitulo": "Análisis y coaching remoto",
-    "imagen": "/images/servicios/programa-online.png",
-    "caracteristicas": [
-      "Análisis de onboard",
-      "Análisis de telemetría",
-      "Técnica de conducción",
-      "Notas y comunicación",
-      "Identificación de pérdidas de tiempo",
-      "Plan de trabajo personalizado",
-      "Videollamadas de seguimiento"
-    ]
-  },
-  {
-    "id": "training",
-    "nombre": "Rallytech Training",
-    "subtitulo": "Entrenamiento presencial",
-    "imagen": "/images/servicios/programa-training.jpg",
-    "caracteristicas": [
-      "Cursos de 1, 2 o 3 días",
-      "Técnica de conducción",
-      "Frenada y transferencias",
-      "Trazadas y control del auto",
-      "Notas y lectura del camino",
-      "Análisis de onboard y telemetría",
-      "Debrief y plan de mejora"
-    ],
-    "aclaracion": "Los tests siempre se realizan en el auto del propietario, que debe contar con auto de rally y auto de recce."
-  },
-  {
-    "id": "performance",
-    "nombre": "Rallytech Performance",
-    "subtitulo": "Desarrollo integral del piloto",
-    "imagen": "/images/servicios/programa-performance.png",
-    "caracteristicas": [
-      "Seguimiento durante la temporada",
-      "Análisis previo y post carrera",
-      "Análisis de telemetría y video",
-      "Trabajo con piloto y copiloto",
-      "Estrategia y preparación",
-      "Objetivos y plan de evolución",
-      "Acompañamiento en competencias"
-    ],
-    "aclaracion": "Los tests siempre se realizan en el auto del propietario, que debe contar con auto de rally y auto de recce."
-  }
-]
+{
+  "online": "/images/servicios/programa-online.png",
+  "training": "/images/servicios/programa-training.jpg",
+  "performance": "/images/servicios/programa-performance.png"
+}

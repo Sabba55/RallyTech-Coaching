@@ -2,16 +2,25 @@
 
 import { useActionState, useState } from "react";
 import { retraso } from "@/utils/reveal";
-import programas from "@/data/programas.json";
 import { enviarContacto } from "@/actions/enviar-contacto";
 import type { RespuestaContacto } from "@/types/contacto";
 import { PAISES, EXPERIENCIAS } from "@/data/opciones-contacto";
+import { useIdioma } from "@/i18n/IdiomaProvider";
 
 const campo =
   "w-full rounded-[10px] border border-gris-400 bg-gris-900 px-4 py-3 text-sm font-medium not-italic text-gris-100 placeholder:text-gris-400 outline-none transition focus:border-verde";
 const etiqueta = "mb-2 block text-xs uppercase tracking-widest text-gris-100";
 
 export default function Contacto() {
+  const { idioma, t } = useIdioma();
+  const textos = t.contacto;
+  // Programas del idioma actual, para armar las opciones de "Interesado en"
+  const programas = t.programas.lista;
+
+  // Los valores de país y experiencia son fijos; solo cambia el texto que se muestra
+  const paises: Record<string, string> = textos.paises;
+  const experiencias: Record<string, string> = textos.experiencias;
+
   const [estado, accion, enviando] = useActionState<RespuestaContacto | null, FormData>(
     enviarContacto,
     null
@@ -44,12 +53,11 @@ export default function Contacto() {
         {/* Columna izquierda: mensaje */}
         <div className="reveal flex flex-col justify-center text-center sm:text-left">
           <h2 className="text-3xl font-extrabold uppercase leading-tight md:text-5xl">
-            ¿Dónde estás
-            <span className="block text-verde">perdiendo tiempo?</span>
+            {textos.titulo1}
+            <span className="block text-verde">{textos.titulo2}</span>
           </h2>
           <p className="mx-auto mt-5 max-w-md font-medium text-gris-100 sm:mx-0">
-            Contanos sobre tu auto, categoría, experiencia y objetivo. Te
-            ayudamos a encontrar el próximo paso.
+            {textos.texto}
           </p>
         </div>
 
@@ -65,7 +73,7 @@ export default function Contacto() {
               role="status"
               className="rounded-[10px] border border-verde bg-verde/10 px-4 py-3 text-sm text-verde"
             >
-              ¡Consulta enviada! Te respondemos a la brevedad.
+              {textos.exito}
             </p>
           )}
           {estadoVisible && !estadoVisible.ok && (
@@ -81,7 +89,7 @@ export default function Contacto() {
             <div className="grid gap-5 sm:grid-cols-2">
             <div>
                 <label htmlFor="nombre" className={etiqueta}>
-                Nombre *
+                {textos.nombre}
                 </label>
                 <input
                 id="nombre"
@@ -90,7 +98,7 @@ export default function Contacto() {
                 required
                 maxLength={100}
                 autoComplete="name"
-                placeholder="Tu nombre"
+                placeholder={textos.nombrePlaceholder}
                 defaultValue={estadoVisible?.valores?.nombre}
                 className={campo}
                 />
@@ -98,7 +106,7 @@ export default function Contacto() {
 
             <div>
                 <label htmlFor="email" className={etiqueta}>
-                Correo electrónico *
+                {textos.email}
                 </label>
                 <input
                 id="email"
@@ -107,7 +115,7 @@ export default function Contacto() {
                 required
                 maxLength={150}
                 autoComplete="email"
-                placeholder="tucorreo@ejemplo.com"
+                placeholder={textos.emailPlaceholder}
                 defaultValue={estadoVisible?.valores?.email}
                 className={campo}
                 />
@@ -118,7 +126,7 @@ export default function Contacto() {
             <div className="grid gap-5 sm:grid-cols-2">
               <div>
                 <label htmlFor="pais" className={etiqueta}>
-                  País *
+                  {textos.pais}
                 </label>
                 <select
                   id="pais"
@@ -129,11 +137,11 @@ export default function Contacto() {
                   className={`${campo} select-rally`}
                 >
                   <option value="" disabled>
-                    Elegí tu país
+                    {textos.paisPlaceholder}
                   </option>
                   {PAISES.map((p) => (
                     <option key={p} value={p}>
-                      {p}
+                      {paises[p] ?? p}
                     </option>
                   ))}
                 </select>
@@ -141,7 +149,7 @@ export default function Contacto() {
 
               <div>
                 <label htmlFor="experiencia" className={etiqueta}>
-                  Experiencia *
+                  {textos.experiencia}
                 </label>
                 <select
                   id="experiencia"
@@ -151,11 +159,11 @@ export default function Contacto() {
                   className={`${campo} select-rally`}
                 >
                   <option value="" disabled>
-                    Elegí tu nivel
+                    {textos.experienciaPlaceholder}
                   </option>
                   {EXPERIENCIAS.map((e) => (
                     <option key={e.value} value={e.value}>
-                      {e.label}
+                      {experiencias[e.value] ?? e.label}
                     </option>
                   ))}
                 </select>
@@ -164,7 +172,7 @@ export default function Contacto() {
 
             <div>
                 <label htmlFor="programa" className={etiqueta}>
-                Interesado en *
+                {textos.interes}
                 </label>
                 <select
                 id="programa"
@@ -174,35 +182,38 @@ export default function Contacto() {
                 className={`${campo} select-rally`}
                 >
                 <option value="" disabled>
-                    Elegí una opción
+                    {textos.interesPlaceholder}
                 </option>
                 {programas.map((p) => (
                     <option key={p.id} value={p.id}>
                     {p.nombre}
                     </option>
                 ))}
-                <option value="no-seguro">No estoy seguro</option>
+                <option value="no-seguro">{textos.noSeguro}</option>
                 </select>
             </div>
 
             <div>
                 <label htmlFor="mensaje" className={etiqueta}>
-                ¿Qué querés mejorar?
+                {textos.mensaje}
                 </label>
                 <textarea
                 id="mensaje"
                 name="mensaje"
                 rows={4}
                 maxLength={2000}
-                placeholder="Contanos tu auto, categoría y objetivo"
+                placeholder={textos.mensajePlaceholder}
                 defaultValue={estadoVisible?.valores?.mensaje}
                 className={campo}
                 />
             </div>
 
+          {/* Idioma del formulario: se usa para responder y para los mensajes de error */}
+          <input type="hidden" name="idioma" value={idioma} />
+
           {/* Campo trampa anti-bots: oculto para las personas */}
           <div className="absolute -left-[9999px]" aria-hidden>
-            <label htmlFor="sitioWeb">No completar</label>
+            <label htmlFor="sitioWeb">{textos.trampaBots}</label>
             <input id="sitioWeb" name="sitioWeb" type="text" tabIndex={-1} autoComplete="off" />
           </div>
 
@@ -219,10 +230,10 @@ export default function Contacto() {
                     <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="3" opacity="0.25" />
                     <path d="M21 12a9 9 0 0 0-9-9" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
                   </svg>
-                  Enviando…
+                  {textos.enviando}
                 </>
               ) : (
-                "Enviar consulta"
+                textos.enviar
               )}
             </button>
 
@@ -231,8 +242,8 @@ export default function Contacto() {
               type="button"
               onClick={reiniciar}
               disabled={enviando}
-              aria-label="Reiniciar formulario"
-              title="Reiniciar formulario"
+              aria-label={textos.reiniciar}
+              title={textos.reiniciar}
               className="inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded-[10px] border-2 border-gris-400 text-gris-400 transition duration-200 enabled:hover:bg-gris-400 enabled:hover:text-negro enabled:active:bg-gris-400 enabled:active:text-negro disabled:cursor-not-allowed disabled:opacity-70"
             >
               <svg

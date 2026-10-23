@@ -1,18 +1,14 @@
 "use server";
 
-import programas from "@/data/programas.json";
 import { getResend } from "@/utils/resend";
 import { PAISES, EXPERIENCIAS } from "@/data/opciones-contacto";
+import { IDIOMA_POR_DEFECTO, esIdioma } from "@/i18n/config";
+import { diccionarios } from "@/i18n/textos";
 import type { DatosContacto, RespuestaContacto } from "@/types/contacto";
 
 const EXPERIENCIA_LABEL: Record<string, string> = Object.fromEntries(
   EXPERIENCIAS.map((e) => [e.value, e.label])
 );
-
-const OPCIONES: Record<string, string> = {
-  ...Object.fromEntries(programas.map((p) => [p.id, p.nombre])),
-  "no-seguro": "No estoy seguro",
-};
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -26,6 +22,19 @@ export async function enviarContacto(
 ): Promise<RespuestaContacto> {
   // Campo trampa para bots: una persona real nunca lo ve ni lo completa
   if (limpiar(formData.get("sitioWeb"), 100)) return { ok: true };
+
+  // Idioma del formulario: define en qué idioma se devuelven los mensajes de error
+  const idiomaEnviado = limpiar(formData.get("idioma"), 5);
+  const idioma = esIdioma(idiomaEnviado) ? idiomaEnviado : IDIOMA_POR_DEFECTO;
+  const { errores } = diccionarios[idioma];
+
+  // Los nombres de los programas son iguales en todos los idiomas; se toman del español
+  // porque el mail le llega a Samir en español
+  const { programas } = diccionarios.es;
+  const OPCIONES: Record<string, string> = {
+    ...Object.fromEntries(programas.lista.map((p) => [p.id, p.nombre])),
+    "no-seguro": "No estoy seguro",
+  };
 
   const valores: DatosContacto = {
     nombre: limpiar(formData.get("nombre"), 100),
@@ -44,36 +53,27 @@ export async function enviarContacto(
     !valores.experiencia ||
     !valores.programa
   ) {
-    return {
-      ok: false,
-      error:
-        "Completá nombre, correo electrónico, país, experiencia y el programa de interés.",
-      valores,
-    };
+    return { ok: false, error: errores.camposObligatorios, valores };
   }
   if (!EMAIL_RE.test(valores.email)) {
-    return { ok: false, error: "El correo electrónico no es válido.", valores };
+    return { ok: false, error: errores.emailInvalido, valores };
   }
   if (!(valores.programa in OPCIONES)) {
-    return { ok: false, error: "Elegí una opción en \"Interesado en\".", valores };
+    return { ok: false, error: errores.programaInvalido, valores };
   }
 
   if (!PAISES.includes(valores.pais)) {
-    return { ok: false, error: "Elegí un país de la lista.", valores };
+    return { ok: false, error: errores.paisInvalido, valores };
   }
 
   if (!(valores.experiencia in EXPERIENCIA_LABEL)) {
-    return { ok: false, error: "Elegí una opción de experiencia válida.", valores };
+    return { ok: false, error: errores.experienciaInvalida, valores };
   }
 
   const receptor = process.env.RECEPTOR_EMAIL;
   if (!receptor || !process.env.RESEND_API_KEY) {
     console.error("Faltan RESEND_API_KEY o RECEPTOR_EMAIL en las variables de entorno");
-    return {
-      ok: false,
-      error: "No pudimos enviar tu consulta. Intentá de nuevo más tarde.",
-      valores,
-    };
+    return { ok: false, error: errores.envioFallido, valores };
   }
 
   try {
@@ -88,6 +88,8 @@ export async function enviarContacto(
         `País: ${valores.pais}`,
         `Experiencia: ${EXPERIENCIA_LABEL[valores.experiencia]}`,
         `Interesado en: ${OPCIONES[valores.programa]}`,
+        // Para que Samir sepa en qué idioma le conviene responder
+        `Idioma de la web: ${idioma === "en" ? "Inglés (en)" : "Español (es)"}`,
         "",
         "¿Qué quiere mejorar?",
         valores.mensaje || "(sin mensaje)",
@@ -96,19 +98,11 @@ export async function enviarContacto(
 
     if (error) {
       console.error("Error de Resend:", error);
-      return {
-        ok: false,
-        error: "No pudimos enviar tu consulta. Intentá de nuevo más tarde.",
-        valores,
-      };
+      return { ok: false, error: errores.envioFallido, valores };
     }
     return { ok: true };
   } catch (e) {
     console.error("Error al enviar el contacto:", e);
-    return {
-      ok: false,
-      error: "No pudimos enviar tu consulta. Intentá de nuevo más tarde.",
-      valores,
-    };
+    return { ok: false, error: errores.envioFallido, valores };
   }
 }

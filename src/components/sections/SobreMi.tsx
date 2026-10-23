@@ -1,11 +1,11 @@
+"use client";
+
 import type { ReactNode } from "react";
 import Image from "next/image";
 import CountUp from "@/components/ui/CountUp";
 import { retraso } from "@/utils/reveal";
-import trayectoriaData from "@/data/trayectoria.json";
-import type { Hito, Trayectoria } from "@/types/trayectoria";
-
-const trayectoria = trayectoriaData as Trayectoria;
+import type { Hito } from "@/types/trayectoria";
+import { useIdioma } from "@/i18n/IdiomaProvider";
 
 // Botón de red con borde sólido (border = 1px, border-2 = 2px)
 const claseRed =
@@ -73,6 +73,10 @@ function ListaHitos({ titulo, items }: { titulo: string; items: Hito[] }) {
 }
 
 export default function SobreMi() {
+  const { t } = useIdioma();
+  const textos = t.sobreMi;
+  const trayectoria = t.trayectoria;
+
   return (
     <section
       id="quien-soy"
@@ -86,7 +90,7 @@ export default function SobreMi() {
           <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[10px] border border-gris-700 bg-gris-900">
             <Image
               src="/images/sobre-mi/samir.png"
-              alt="Samir Assaf, fundador de Rallytech"
+              alt={textos.altFoto}
               fill
               sizes="320px"
               className="object-cover object-top grayscale"
@@ -125,7 +129,7 @@ export default function SobreMi() {
         {/* Div derecho: contenido */}
         <div>
           <h2 className="reveal text-center text-3xl font-extrabold uppercase sm:text-left md:text-4xl">
-            ¿Quién es <span className="text-verde">Samir Assaf?</span>
+            {textos.titulo1} <span className="text-verde">{textos.titulo2}</span>
           </h2>
 
           <p
@@ -154,9 +158,9 @@ export default function SobreMi() {
 
           {/* Logros y experiencia */}
           <div className="reveal mt-10 grid gap-8 sm:grid-cols-2" style={retraso(300)}>
-            <ListaHitos titulo="Logros deportivos" items={trayectoria.logros} />
+            <ListaHitos titulo={textos.logros} items={trayectoria.logros} />
             <ListaHitos
-              titulo="Experiencia profesional"
+              titulo={textos.experiencia}
               items={trayectoria.experiencia}
             />
           </div>

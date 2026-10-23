@@ -5,10 +5,16 @@ import { retraso } from "@/utils/reveal";
 export default function TarjetaPrograma({
   programa,
   indice = 0,
+  masInfo,
+  importante,
 }: {
   programa: Programa;
   /** Posición en la grilla, para escalonar la animación */
   indice?: number;
+  /** Texto del botón de la tarjeta, según el idioma */
+  masInfo: string;
+  /** Texto oculto que antecede a la aclaración (solo para lectores de pantalla) */
+  importante: string;
 }) {
   // "Rallytech Online" -> marca: "Rallytech", resto: "Online"
   const [marca, ...resto] = programa.nombre.split(" ");
@@ -60,7 +66,7 @@ export default function TarjetaPrograma({
               <line x1="12" y1="9" x2="12" y2="13" />
               <line x1="12" y1="17" x2="12.01" y2="17" />
             </svg>
-            <span className="sr-only">Importante: </span>
+            <span className="sr-only">{importante}</span>
             {programa.aclaracion}
           </p>
         )}
@@ -69,7 +75,7 @@ export default function TarjetaPrograma({
           href="#contacto"
           className="mt-auto self-start rounded-[10px] border border-gris-100 px-5 py-2 pt-2 text-xs font-bold uppercase transition hover:border-verde hover:text-verde"
         >
-          Más info →
+          {masInfo}
         </a>
       </div>
     </article>
