@@ -1,7 +1,9 @@
 "use server";
 
+import { headers } from "next/headers";
 import { getResend } from "@/utils/resend";
 import { htmlConsulta } from "@/utils/plantilla-email";
+import { superaLimite, REGLA_POR_IP, REGLA_GLOBAL } from "@/utils/limite-envios";
 import { PAISES, EXPERIENCIAS } from "@/data/opciones-contacto";
 import { IDIOMA_POR_DEFECTO, esIdioma } from "@/i18n/config";
 import { diccionarios } from "@/i18n/textos";
@@ -69,6 +71,17 @@ export async function enviarContacto(
 
   if (!(valores.experiencia in EXPERIENCIA_LABEL)) {
     return { ok: false, error: errores.experienciaInvalida, valores };
+  }
+
+  // Límite de envíos: por visitante y en total (se aplica recién acá para que un error de
+  // tipeo en el formulario no gaste los intentos de una persona real)
+  const cabeceras = await headers();
+  const ip =
+    cabeceras.get("x-nf-client-connection-ip") ??
+    cabeceras.get("x-forwarded-for")?.split(",")[0].trim() ??
+    "desconocida";
+  if (superaLimite(`ip:${ip}`, REGLA_POR_IP) || superaLimite("global", REGLA_GLOBAL)) {
+    return { ok: false, error: errores.demasiadosEnvios, valores };
   }
 
   const receptor = process.env.RECEPTOR_EMAIL;

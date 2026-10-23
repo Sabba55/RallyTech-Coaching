@@ -224,7 +224,8 @@
     "programaInvalido": "Choose an option under \"Interested in\".",
     "paisInvalido": "Choose a country from the list.",
     "experienciaInvalida": "Choose a valid experience level.",
-    "envioFallido": "We couldn't send your message. Please try again later."
+    "envioFallido": "We couldn't send your message. Please try again later.",
+    "demasiadosEnvios": "You've sent several messages in a row. Please wait a few minutes and try again."
   },
   "pie": {
     "ariaPie": "Footer",

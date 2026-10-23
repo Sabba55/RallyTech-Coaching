@@ -224,7 +224,8 @@
     "programaInvalido": "Elegí una opción en \"Interesado en\".",
     "paisInvalido": "Elegí un país de la lista.",
     "experienciaInvalida": "Elegí una opción de experiencia válida.",
-    "envioFallido": "No pudimos enviar tu consulta. Intentá de nuevo más tarde."
+    "envioFallido": "No pudimos enviar tu consulta. Intentá de nuevo más tarde.",
+    "demasiadosEnvios": "Enviaste varias consultas seguidas. Esperá unos minutos e intentá de nuevo."
   },
   "pie": {
     "ariaPie": "Pie de página",
