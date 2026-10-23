@@ -34,7 +34,7 @@ export default function Header() {
             />
         </a>
 
-        <nav className="hidden items-center gap-8 text-sm uppercase tracking-wide min-[911px]:flex">
+        <nav className="hidden items-center gap-8 text-sm uppercase tracking-wide min-[1010px]:flex">
           {enlaces.map((e) => (
             <a
               key={e.href}
@@ -54,7 +54,7 @@ export default function Header() {
         </nav>
 
         {/* En celular: selector de idioma + botón del menú */}
-        <div className="flex items-center gap-4 min-[911px]:hidden">
+        <div className="flex items-center gap-4 min-[1010px]:hidden">
           <SelectorIdioma />
           <button
             onClick={() => setAbierto(!abierto)}
@@ -67,7 +67,7 @@ export default function Header() {
       </div>
 
       {abierto && (
-        <nav className="flex flex-col gap-4 border-t border-gris-700 bg-negro px-5 py-4 min-[911px]:hidden">
+        <nav className="flex flex-col gap-4 border-t border-gris-700 bg-negro px-5 py-4 min-[1010px]:hidden">
           {enlaces.map((e) => (
             <a
               key={e.href}

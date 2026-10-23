@@ -33,7 +33,7 @@ export default function Portada() {
       <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-negro to-transparent" />
 
       <div className="relative mx-auto w-full max-w-6xl px-5 pt-16">
-        <h1 className="text-5xl uppercase leading-[0.95] md:text-6xl lg:text-7xl">
+        <h1 className="text-5xl max-[383px]:text-[44px] uppercase leading-[0.95] md:text-6xl lg:text-7xl">
           <span className="block font-extrabold">{textos.linea1}</span>
           <span className="block font-extrabold text-verde">{textos.linea2}</span>
           <span className="block font-normal">{textos.linea3}</span>

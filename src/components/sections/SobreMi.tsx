@@ -128,12 +128,12 @@ export default function SobreMi() {
 
         {/* Div derecho: contenido */}
         <div>
-          <h2 className="reveal text-center text-3xl font-extrabold uppercase sm:text-left md:text-4xl">
+          <h2 className="reveal text-center text-3xl font-extrabold uppercase md:text-left md:text-4xl">
             {textos.titulo1} <span className="text-verde">{textos.titulo2}</span>
           </h2>
 
           <p
-            className="reveal mx-auto mt-4 max-w-xl text-center font-medium leading-relaxed text-gris-100 sm:mx-0 sm:text-left"
+            className="reveal mx-auto mt-4 max-w-xl text-center font-medium leading-relaxed text-gris-100 md:mx-0 md:text-left"
             style={retraso(100)}
           >
             {trayectoria.presentacion}
@@ -141,11 +141,11 @@ export default function SobreMi() {
 
           {/* Estadísticas */}
           <div
-            className="reveal mt-8 flex flex-wrap justify-center gap-x-10 gap-y-6 sm:justify-start"
+            className="reveal mt-8 flex flex-wrap justify-center gap-x-10 gap-y-6 md:justify-start"
             style={retraso(200)}
           >
             {trayectoria.estadisticas.map((e) => (
-              <div key={e.etiqueta} className="text-center sm:text-left">
+              <div key={e.etiqueta} className="text-center md:text-left">
                 <p className="text-3xl font-extrabold uppercase text-verde">
                   <CountUp valor={e.valor} />
                 </p>

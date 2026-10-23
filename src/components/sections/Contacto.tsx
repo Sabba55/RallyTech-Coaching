@@ -86,7 +86,7 @@ export default function Contacto() {
           )}
 
             {/* Fila 1: nombre | correo electrónico */}
-            <div className="grid gap-5 sm:grid-cols-2">
+            <div className="grid gap-5 min-[1010px]:grid-cols-2">
             <div>
                 <label htmlFor="nombre" className={etiqueta}>
                 {textos.nombre}
@@ -123,7 +123,7 @@ export default function Contacto() {
             </div>
 
             {/* Fila 2: país | experiencia */}
-            <div className="grid gap-5 sm:grid-cols-2">
+            <div className="grid gap-5 min-[1010px]:grid-cols-2">
               <div>
                 <label htmlFor="pais" className={etiqueta}>
                   {textos.pais}

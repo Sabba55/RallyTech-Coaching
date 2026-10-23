@@ -51,7 +51,7 @@ export default function TarjetaPrograma({
         </ul>
 
         {programa.aclaracion && (
-          <p className="flex items-start gap-2 pt-4 text-xs font-medium leading-relaxed text-gris-100">
+          <p className="flex items-start gap-2 pt-4 max-[971px]:pt-2 text-xs font-medium leading-relaxed text-gris-100">
             <svg
               viewBox="0 0 25 25"
               className="mt-px h-4 w-4 shrink-0 text-yellow-400"

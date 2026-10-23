@@ -22,7 +22,7 @@ export default function Footer({ anio }: { anio: ReactNode }) {
 
   return (
     <footer className="border-t border-gris-700 bg-gris-900">
-      <div className="mx-auto grid max-w-6xl gap-10 px-5 py-12 text-center sm:text-left md:grid-cols-[1.5fr_1fr_1fr]">
+      <div className="mx-auto grid max-w-6xl gap-10 px-5 py-12 text-center md:text-left md:grid-cols-[1.5fr_1fr_1fr]">
         {/* Marca */}
         <div>
           <a href="#inicio" aria-label={navegacion.irAlInicio}>
@@ -32,10 +32,10 @@ export default function Footer({ anio }: { anio: ReactNode }) {
               width={400}
               height={100}
               priority
-              className="mx-auto h-12 w-auto sm:mx-0"
+              className="mx-auto h-12 w-auto md:mx-0"
             />
           </a>
-          <p className="mx-auto mt-4 max-w-xs text-sm font-medium text-gris-400 sm:mx-0">
+          <p className="mx-auto mt-4 max-w-xs text-sm font-medium text-gris-400 md:mx-0">
             {textos.lema1}{" "}
             <span className="text-verde">{textos.lema2}</span>
           </p>
@@ -66,7 +66,7 @@ export default function Footer({ anio }: { anio: ReactNode }) {
             {textos.seguinos}
           </h3>
           <Redes
-            className="mt-4 justify-center sm:justify-start"
+            className="mt-4 justify-center md:justify-start"
             hrefs={{ Instagram: "https://www.instagram.com/rallytech_coaching/" }}
           />
         </div>
